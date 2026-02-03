@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For Navya ❤️</title>
+
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Segoe UI', sans-serif;
+    overflow: hidden;
+}
+
+.card {
+    background: white;
+    padding: 45px;
+    border-radius: 28px;
+    text-align: center;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.25);
+    max-width: 460px;
+}
+
+h1 {
+    color: #ff4d6d;
+}
+
+.sub {
+    font-size: 20px;
+    color: #ff4d6d;
+    font-weight: 600;
+    min-height: 28px;
+}
+
+.buttons {
+    margin-top: 35px;
+    position: relative;
+    height: 90px;
+}
+
+button {
+    padding: 14px 34px;
+    font-size: 18px;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+}
+
+#yes {
+    background: #ff4d6d;
+    color: white;
+}
+
+#yes:hover {
+    transform: scale(1.1);
+}
+
+#no {
+    background: #eee;
+    position: absolute;
+}
+
+.message {
+    display: none;
+    margin-top: 25px;
+    animation: fadeIn 2s ease;
+}
+
+.message h2 {
+    color: #ff4d6d;
+}
+
+.final-message {
+    font-size: 18px;
+    color: #444;
+    line-height: 1.8;
+}
+
+.signature {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #ff4d6d;
+    font-weight: 600;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* hearts */
+.heart {
+    position: fixed;
+    bottom: 0;
+    font-size: 24px;
+    animation: floatUp 4s linear forwards;
+}
+
+@keyframes floatUp {
+    to {
+        transform: translateY(-100vh);
+        opacity: 0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+    <h1>Navya ❤️</h1>
+    <div class="sub" id="typing"></div>
+
+    <div class="buttons">
+        <button id="yes">YES 💍</button>
+        <button id="no">NO 🙈</button>
+    </div>
+
+    <div class="message" id="message">
+        <h2>Will you be Navya Bhattu?</h2>
+
+        <p class="final-message">
+            Navya, I want to say this from my heart.
+            <br><br>
+            You mean so much to me.  
+            More than I can explain in words.
+            <br><br>
+            When you are with me, I feel calm and happy.  
+            When you are not, something feels missing.
+            <br><br>
+            I know I am not perfect.  
+            I have made mistakes and I am truly sorry for that.
+            <br><br>
+            But one thing I know for sure is this —  
+            I do not want to lose you at any cost.
+            <br><br>
+            I want to choose you every day.  
+            Today, tomorrow, and always.
+        </p>
+
+        <div class="signature">
+            With love,  
+            Bhattu ❤️
+        </div>
+    </div>
+</div>
+
+<script>
+/* typing */
+const text = "Will you be my Valentine? 💖";
+let i = 0;
+const typing = document.getElementById("typing");
+
+function typeText() {
+    if (i < text.length) {
+        typing.innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeText, 80);
+    }
+}
+typeText();
+
+/* no button */
+const noBtn = document.getElementById("no");
+noBtn.addEventListener("mouseover", () => {
+    noBtn.style.left = Math.random() * 260 + "px";
+    noBtn.style.top = Math.random() * 70 + "px";
+});
+
+/* yes click */
+const yesBtn = document.getElementById("yes");
+const message = document.getElementById("message");
+
+yesBtn.addEventListener("click", () => {
+    message.style.display = "block";
+    yesBtn.style.display = "none";
+    noBtn.style.display = "none";
+
+    for (let j = 0; j < 30; j++) {
+        setTimeout(createHeart, j * 100);
+    }
+});
+
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerText = "💖";
+    heart.style.left = Math.random() * 100 + "vw";
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 4000);
+}
+</script>
+
+</body>
+</html>
